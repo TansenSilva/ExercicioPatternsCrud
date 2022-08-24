@@ -24,6 +24,10 @@ public class RecebimentoController {
     public Optional<RecebimentosModel> buscarRecebimentoPorId(@PathVariable Long codigo){
         return recebimentoService.buscarId(codigo);
     }
+    @GetMapping(path = "/recebimento/forma/{formaDeRecebimento}")
+    public  List<RecebimentosModel> findByFormaDeRecebimento(@PathVariable String formaDeRecebimento){
+        return recebimentoService.findByRecebimentos(formaDeRecebimento);
+    }
 
     @PostMapping(path = "/recebimento")
     @ResponseStatus(HttpStatus.CREATED)

@@ -25,6 +25,10 @@ public class RecebimentoService {
         return recebimentoRepository.findById(codigo);
     }
 
+    public List<RecebimentosModel> findByRecebimentos (String formaDeRecebimento){
+        return recebimentoRepository.findByFormaDeRecebimento(formaDeRecebimento);
+    }
+
     public RecebimentosModel cadastrar(RecebimentosModel recebimentosModel){
         RecebimentoFactory factory = new RecebimentoFactory();
         BigDecimal valor = factory.calculoPagamento(recebimentosModel.getFormaDeRecebimento()).calculoPagamento(recebimentosModel);
